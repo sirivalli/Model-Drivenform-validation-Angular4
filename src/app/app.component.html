@@ -1,0 +1,148 @@
+
+<div class="container">
+    <h1 class="well"> Angular4-Modeldriven FormValidation</h1>
+	<div class="col-lg-12 well">
+	<div class="row">
+				<form [formGroup]="myform" (ngSubmit)="onSubmit()">
+					<div class="col-sm-12">
+						<div class="row">
+							<div class="col-sm-6 form-group" >
+                                   
+                                <label >First Name<span class="reqi-red">*</span></label>
+                            
+                                <input type="text" placeholder="Enter First Name Here.." class="form-control" formControlName="firstName">
+                                <div class="errormsg" *ngIf="firstName.errors && (firstName.dirty || firstName.touched)">
+                                        <p *ngIf="firstName.errors.required">First Name is required</p>
+                                        <p *ngIf="firstName.errors.minlength">First Name must be minimum 3 characters </p>
+                                        <p *ngIf="lastName.errors.pattern">Last Name shouldn't contain special characters(or)numbers</p>
+                                      </div>
+                            </div>
+                         
+							<div class="col-sm-6 form-group">
+                                    
+								<label>Last Name<span class="reqi-red">*</span></label>
+                                <input type="text" placeholder="Enter Last Name Here.." class="form-control" formControlName="lastName">
+                                <div class=" errormsg" *ngIf="lastName.errors && (lastName.dirty || lastName.touched)">
+                                        <p *ngIf="lastName.errors.required">Last Name is required</p>
+                                        <p *ngIf="lastName.errors.minlength">Last Name must be minimum 3 characters</p>
+                                        <p *ngIf="lastName.errors.maxlength">Last Name must be maximum 5 characters </p>
+                                        <p *ngIf="lastName.errors.pattern">Last Name shouldn't contain special characters</p>
+                                      </div>
+                            </div>
+                        </div>
+                      
+                        </div>		
+						<div class="form-group">
+							<label>Address<span class="reqi-red">*</span></label>
+							<textarea placeholder="Enter Address Here.." rows="3" class="form-control"  formControlName="address"></textarea>
+                            <div class=" errormsg" *ngIf="address.errors && (address.dirty || address.touched)">
+                                    <p *ngIf="address.errors.required">Address is required</p>
+                                    <p *ngIf="address.errors.minlength">Address must be minimum 3 characters</p>
+                                    <p *ngIf="address.errors.maxlength">Address must be maximum 150 characters </p>
+                
+                                  </div>
+                        </div>	
+						<div class="row">
+							<div class="col-sm-4 form-group">
+								<label>City<span class="reqi-red">*</span></label>
+								<input type="text" placeholder="Enter City Name Here.." class="form-control" formControlName="city">
+                                <div class=" errormsg" *ngIf="city.errors && (city.dirty || city.touched)">
+                                        <p *ngIf="city.errors.required">City is required</p></div>
+                            </div>	
+							<div class="col-sm-4 form-group">
+								<label>State<span class="reqi-red">*</span></label>
+								<input type="text" placeholder="Enter State Name Here.." class="form-control" formControlName="state">
+                                <div class=" errormsg" *ngIf="state.errors && (state.dirty || state.touched)">
+                                        <p *ngIf="state.errors.required">State is required</p></div>
+                            </div>	
+                        
+                         	
+							<div class="col-sm-4 form-group">
+								<label>Zip<span class="reqi-red">*</span></label>
+								<input type="text" placeholder="Enter Zip Code Here.." class="form-control" formControlName="zip">
+                                <div class=" errormsg" *ngIf="zip.errors && (zip.dirty || zip.touched)">
+                                        <p *ngIf="zip.errors.required">Zip is required</p>
+                                        <p *ngIf="zip.errors.minlength">Enter valid zipcode</p>
+                                        <p *ngIf="zip.errors.maxlength">Enter valid zipcode</p>
+                                        <p *ngIf="zip.errors.pattern">Enter valid zipcode</p>
+                                      </div>
+                            </div>	
+                        </div>	
+                            
+						<div class="row">
+							<div class="col-sm-6 form-group">
+								<label>Password<span class="reqi-red">*</span></label>
+								<input type="password" placeholder="Enter Designation Here.." class="form-control" formControlName="password">
+                                <div class=" errormsg" *ngIf="password.errors && (password.dirty || password.touched)">
+                                        <p *ngIf="password.errors.required">Password is required</p>
+                                        <p *ngIf="password.errors.pattern">Enter valid password</p>
+                                      </div>
+                            </div>		
+							<div class="col-sm-6 form-group">
+								<label>Conform Password<span class="reqi-red">*</span></label>
+								<input type="password" placeholder="Enter Company Name Here.." class="form-control" formControlName="conformpassword">
+                                <div class=" errormsg" *ngIf="conformpassword.errors && (conformpassword.dirty || conformpassword.touched)">
+                                        <p *ngIf="conformpassword.errors.required">Conform Password is required</p>
+                                        <p *ngIf="conformpassword.errors.pattern">Enter valid Conform password</p>
+                                      </div>
+                            </div>	
+                        </div>	
+					<div class="form-group">
+                        <label>Phone Number<span class="reqi-red">*</span></label>
+                        <input type="tel" placeholder="Enter Phone Number Here.." class="form-control" formControlName="phonenumber">
+                        <div class=" errormsg" *ngIf="phonenumber.errors && (phonenumber.dirty || phonenumber.touched)">
+                                <p *ngIf="phonenumber.errors.required">Phone Number is required</p>
+                                <p *ngIf="phonenumber.errors.minlength">Phone Number must be 3 characters long</p>
+                                <p *ngIf="phonenumber.errors.maxlength">Phone Number must be 5 characters long</p>
+                                <p *ngIf="phonenumber.errors.pattern">Phone Number must be only numbers</p>
+                              </div>
+		
+					</div>		
+					<div class="form-group">
+						<label>Email Address<span class="reqi-red">*</span></label>
+                        <input type="email" placeholder="Enter Email Address Here.." class="form-control" formControlName="email">
+                        <div class=" errormsg" *ngIf="email.errors && (email.dirty || email.touched)">
+                                <p *ngIf="email.errors.required">Email Address is required</p>
+                                <p *ngIf="email.errors.pattern">Email Address is invalid</p>
+                              </div>
+                    </div>
+                    <div class="form-group">
+                            <label>Gender<span class="reqi-red">*</span></label>
+                    <input type="radio" name="gender" value="male"  class="form-control" formControlName="gender"> Male
+                    <input type="radio" name="gender" value="female" class="form-control" formControlName="gender"> Female
+                    <div class=" errormsg" *ngIf="gender.errors && (gender.dirty || gender.touched)">
+                            <p *ngIf="gender.errors.required">Gender is required</p></div>
+                </div>	
+            
+             
+                    <div class="form-group">
+                        <label>Martial Status<span class="reqi-red">*</span></label>
+                        <input type="checkbox" value="" class="form-control" formControlName="martialStatus">Married
+                        <input type="checkbox" value="" class="form-control" formControlName="martialStatus">UnMarried  
+                        <div class=" errormsg" *ngIf="martialStatus.errors && (martialStatus.dirty || martialStatus.touched)">
+                                <p *ngIf="martialStatus.errors.required">Martial Status is required</p></div>
+                    </div>	
+                       
+
+                    <div class="form-group">
+                        <select class="form-control" formControlName="language">
+                                <option value="">Please select a language</option>
+                                <option *ngFor="let lang of langs"
+                                        [value]="lang"> 
+                                        {{lang}} 
+                                </option>
+                              </select>
+                              <div class=" errormsg" *ngIf="language.errors && (language.dirty || language.touched)">
+                                    <p *ngIf="language.errors.required">language is required</p></div>
+                        </div>	
+                   
+                    <button type="submit" class="btn btn-lg btn-info" [disabled]="!myform.valid">Submit</button>	
+                    <button type="reset" class="btn btn-lg btn-info">Reset</button>				
+                   
+                    <pre>{{myform.value | json}}</pre>
+                
+                   
+				</form> 
+				</div>
+	</div>
+	</div>
